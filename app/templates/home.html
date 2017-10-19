@@ -2,8 +2,8 @@
 <ul ng-repeat="room in home.rooms">
   <li> {{ room.$value }} </li>
 </ul>
-<!-- <form ng-submit="home.newRoom()">
+<form ng-submit="home.newRoom()">
       <input type="text" ng-model="home.roomName">
       <input type="submit">
-</form> -->
-<button type="button" class="btn btn-default" ng-click="modal.open()">Create a New Room</button>
+</form>
+<button type="button" class="btn btn-default" ng-click="home.openModal()">Create a New Room</button>
