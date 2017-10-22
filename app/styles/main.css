@@ -1,0 +1,24 @@
+.side-nav {
+  background-color: #eee;
+  position: fixed;
+  width: 20%;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.side-text {
+  padding-left: 5px;
+}
+
+.chat-room {
+  position: absolute;
+  width: 80%;
+  top: 0;
+  right: 0;
+  height: 100%
+}
+
+.chat-text {
+  padding-left: 10px;
+}
