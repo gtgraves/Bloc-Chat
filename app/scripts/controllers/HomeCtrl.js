@@ -1,5 +1,5 @@
 (function() {
-  function HomeCtrl(Room, $uibModal, Message) {
+  function HomeCtrl(Room, $uibModal, Message, $cookies) {
     this.rooms = Room.all;
     this.messages = Message.all;
 
@@ -15,9 +15,13 @@
         backdrop: 'static'
       });
     }
+
+    //this.currentUser = function() {
+      //return $cookies.get('blocChatCurrentuser');
+    //}
   }
 
   angular
     .module('blocChat')
-    .controller('HomeCtrl', ['Room', '$uibModal', 'Message', HomeCtrl]);
+    .controller('HomeCtrl', ['Room', '$uibModal', 'Message', '$cookies', HomeCtrl]);
 })();
