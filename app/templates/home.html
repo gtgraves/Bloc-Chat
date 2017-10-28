@@ -1,6 +1,7 @@
 <div class="side-nav">
   <div class="side-text">
     <h1>Bloc Chat</h1>
+    <!--<h5>{{ home.currentUser }}</h5>-->
     <div ng-repeat="room in home.rooms" ng-click="home.setCurrentRoom(room)">
       <p> {{ room.$value }} </p>
     </div>
