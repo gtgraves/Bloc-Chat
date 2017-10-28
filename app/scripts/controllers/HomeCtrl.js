@@ -16,9 +16,32 @@
       });
     }
 
-    //this.currentUser = function() {
-      //return $cookies.get('blocChatCurrentuser');
-    //}
+    this.currentUser = function() {
+      var user = $cookies.get('blocChatCurrentuser');
+      return user;
+    }
+
+    this.sendMessage = function(newMessage) {
+      Message.send(newMessage);
+      this.messageContent = '';
+    }
+
+    this.send = function() {
+      if (this.currentRoom == null) {
+        alert("Please select a chat room first!");
+        this.messageContent = '';
+      } else {
+        var currentUser = $cookies.get('blocChatCurrentuser');
+        var newMessage = {
+          username: this.currentUser(),
+          content: this.messageContent,
+          sentAt: firebase.database.ServerValue.TIMESTAMP,
+          roomId: this.currentRoom.$id
+        };
+        this.sendMessage(newMessage);
+      };
+    }
+
   }
 
   angular

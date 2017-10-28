@@ -1,8 +1,8 @@
 <div class="side-nav">
   <div class="side-text">
     <h1>Bloc Chat</h1>
-    <!--<h5>{{ home.currentUser }}</h5>-->
-    <div ng-repeat="room in home.rooms" ng-click="home.setCurrentRoom(room)">
+    <h5 style="text-decoration: underline">Current User: {{ home.currentUser() }}</h5>
+    <div class="room-names" ng-repeat="room in home.rooms" ng-click="home.setCurrentRoom(room)">
       <p> {{ room.$value }} </p>
     </div>
     <button type="button" class="btn btn-default" ng-click="home.openModal()">Create a New Room</button>
@@ -16,9 +16,19 @@
         <tr>
           <td>{{ message.username }}</td>
           <td>{{ message.content }}</td>
-          <td>{{ message.sentAt }}</td>
+          <td>{{ message.sentAt | date: 'MMM d - h:m a' }}</td>
         </tr>
       </tbody>
     </table>
   </div>
+</div>
+<div class="chat-new-message">
+  <form class="form-horizontal">
+    <label class="col-sm-2 control-label" for="formGroupInputLarge">New Message</label>
+    <div class="col-sm-8">
+      <input class="form-control" type="text" id="formGroupInputSmall" ng-model="home.messageContent" placeholder="Type your message here">
+    </div>
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-success" ng-click="home.send()">Send</button>
+    </div>
 </div>
